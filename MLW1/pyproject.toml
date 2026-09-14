@@ -1,0 +1,21 @@
+[project]
+name = "ml-from-scratch"
+version = "0.1.0"
+description = "Phase 1 (14 Sep - 22 Nov 2026): ML foundations, implement before you import."
+requires-python = ">=3.11"
+dependencies = ["numpy"]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+# Phase 1 rule: no manual loops over array data. This won't catch every case
+# (a `for` in a test helper is fine) but flags the obvious C-brain reflex.
+select = ["E", "F", "W", "I", "UP", "SIM", "PERF"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
